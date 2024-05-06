@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sponsorens",
+  "info": {
+    "singularName": "sponsoren",
+    "pluralName": "sponsorens",
+    "displayName": "Sponsoren"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Link": {
+      "type": "string"
+    },
+    "Logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

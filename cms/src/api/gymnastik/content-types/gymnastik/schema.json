@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "gymnastiks",
+  "info": {
+    "singularName": "gymnastik",
+    "pluralName": "gymnastiks",
+    "displayName": "Gymnastik"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Text": {
+      "type": "text"
+    },
+    "Bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

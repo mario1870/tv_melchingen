@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "gymnastik_1s",
+  "info": {
+    "singularName": "gymnastik-1",
+    "pluralName": "gymnastik-1s",
+    "displayName": "Gymnastik_1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "Text": {
+      "type": "text"
+    }
+  }
+}

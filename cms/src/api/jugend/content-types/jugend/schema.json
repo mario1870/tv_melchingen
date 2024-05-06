@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jugends",
+  "info": {
+    "singularName": "jugend",
+    "pluralName": "jugends",
+    "displayName": "Jugend",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Training": {
+      "type": "text"
+    },
+    "Trainer": {
+      "type": "string"
+    },
+    "Fussballde": {
+      "type": "string"
+    },
+    "Bild": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Jugend": {
+      "type": "string"
+    },
+    "Index": {
+      "type": "integer"
+    }
+  }
+}

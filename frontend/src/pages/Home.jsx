@@ -1,0 +1,40 @@
+import React, {lazy, Suspense, useState} from "react";
+import WelcomeAnimation from "../animationSections/welcomeAnimation";
+
+const Newsfeed = lazy(() => import("../components/home/newsfeed"));
+const PDFDownloadButton = lazy(() => import("../components/home/beitrissPDF"));
+const Carousel = lazy(() => import("../components/home/carousel"));
+
+const Home = () => {
+
+  const [isVisible, setIsVisible] = useState(true);
+
+    return (
+        <>
+          {isVisible && (
+            <WelcomeAnimation 
+                isVisible={isVisible} 
+                onAnimationComplete={() => setIsVisible(false)} 
+                text="Willkommen" 
+            />
+          )}
+
+          <div className="z-50">
+            <div className="w-full max-h-screen flex flex-col md:flex-row min-h-screen" >
+              <Carousel />
+            </div>
+
+            <div className="w-full flex flex-col items-center py-8 px-2 md:px-4 xl:px-20">
+              <Suspense fallback={<div>Lädt...</div>}>
+                <PDFDownloadButton />
+              </Suspense>
+              <Suspense fallback={<div>Lädt...</div>}>
+                <Newsfeed />
+              </Suspense>
+            </div>
+          </div>
+        </>
+    )
+}
+
+export default Home

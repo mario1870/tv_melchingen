@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kaders",
+  "info": {
+    "singularName": "kader",
+    "pluralName": "kaders",
+    "displayName": "Kader"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "Position": {
+      "type": "enumeration",
+      "enum": [
+        "Trainer",
+        "Betreuer",
+        "Torwart",
+        "Abwehr",
+        "Mittelfeld",
+        "Angriff"
+      ]
+    },
+    "Bild": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
