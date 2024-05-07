@@ -5,15 +5,24 @@ import { motion } from "framer-motion"; // Importiere die SVG-Datei
 import { TextGenerateEffect } from "../animationEffects/text-generate-effect";
 import { useMediaQuery } from 'react-responsive';
 import { FaVolleyballBall } from "react-icons/fa";
+import useScrollViewport from "../hooks/framer-animations/useScrollViewport";
+import { useTransform } from "framer-motion";
   
 const Roundnet = () => {
     const [isVisible, setIsVisible] = useState(true);
+    const { scrollYProgress, targetRef } = useScrollViewport();
 
     const MobileWidth = 768; // Beispielwert für die Breite eines Mobilgeräts
     const isMobile = useMediaQuery({ maxWidth: MobileWidth });
     const width = isMobile ? "90%" : "66%";
 
     const delayRectangle = 1.5
+
+    const fontSize = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["3rem", "0rem"]
+      );
 
     return (
         <>
@@ -28,7 +37,9 @@ const Roundnet = () => {
             <div className="min-h-svh z-10 flex justify-center items-end">
 
                 <div className="text-6xl absolute top-32 md:top-40 font-roboto max-w-[66%]">
-                    <TextGenerateEffect delay={2000} className={"text-4xl text-center md:text-start md:text-8xl"} words={"Herzlich Willkommen"} />
+                    <TextGenerateEffect 
+                        delay={2000} 
+                        className={"text-4xl text-center md:text-start md:text-8xl"} words={"Herzlich Willkommen"} />
                 </div>
 
                 {!isVisible && 
@@ -43,6 +54,7 @@ const Roundnet = () => {
                             <div className="w-full h-auto flex justify-center items-center">
                                 <motion.img 
                                     src="/roundnet/logo_gray.png"
+                                    loading="eager"
                                     className="h-32 w-32 object-cover mx-auto my-auto absolute top-[1rem]" 
                                     initial={{ opacity: 1, height: "auto" }} 
                                     animate={{ opacity: 0, height: 0 }} 
@@ -157,6 +169,8 @@ const Roundnet = () => {
                 
 
             </div>
+
+            <div></div>
 
         </>
     )
