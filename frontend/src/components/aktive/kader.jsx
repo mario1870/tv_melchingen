@@ -49,7 +49,7 @@ const Kader = () => {
                     <h2 className="text-3xl py-3 px-6">{positions[positionKey]}</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-8 gap-4">
                         {players.map(player => (
-                            <div key={player.attributes.id} className="flex justify-center items-center">
+                            <div key={player.attributes.Name} className="flex justify-center items-center">
                                 <SpielerCard 
                                     name={player.attributes.Name} 
                                     img={`${MY_URL_STRAPI}${player.attributes.Bild.data[0].attributes.url}`} 

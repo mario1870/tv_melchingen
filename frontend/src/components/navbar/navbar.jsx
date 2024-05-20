@@ -15,7 +15,7 @@ const navbarData = [
   {link: "/Kinderturnen", titel: "Kindertunen"},
   {link: "/roundnet", titel: "Roundnet"},
   {link: "/Sportheim", titel: "Sportheim"},
-  {link: "/Veranstaltungen", titel: "Veranstaltungen"},
+  {link: "/elfmeterturnier", titel: "Elfmeterturnier"},
   {link: "/Sponsoren", titel: "Sponsoren"},
   {link: "/Kontakt", titel: "Kontakt"},
 ];
@@ -78,8 +78,8 @@ const Navbar = () => {
           </Suspense>
 
           <div className="flex-row hidden lg:flex">
-            {navbarData.map((data, index) => (
-              <span className='w-full flex justify-center items-center flex-col pt-4' key={index}>
+            {navbarData.map((data) => (
+              <span className='w-full flex justify-center items-center flex-col pt-4' key={data.titel}>
                   <motion.span><Link to={data.link} onMouseEnter={() => {setHovered(data.titel)}} onMouseLeave={() => {setHovered(false)}} className={"w-full h-10 md:px-1 xl:px-2 my-1.5 text-white md:text-base xl:text-2xl font-sans font-semibold text-center"}>{data.titel}</Link></motion.span>    
                   <svg className='' width="100%" height="16" viewBox="0 0 145 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <motion.path variants={animatedNavbarUnderline} initial="hidden" animate={hovered === data.titel ? "visible": "hidden"}  d="M0 2C34.3704 2 68.7407 2 103.111 2C114.481 2 125.852 2 137.222 2C139.593 2 141.963 2 144.333 2C148.219 2 136.669 3.32019 132.889 4.22222C104.373 11.0272 76.1103 15.889 46.9444 19.7778C38.7799 20.8664 30.456 22.4688 22.2222 23C13.3405 23.573 39.9397 21.2713 48.7778 20.2222C67.9708 17.9441 87.7366 16.8651 107.056 18.5556C109.817 18.7972 124.305 22.3904 126 19" stroke="white" stroke-width="3" stroke-linecap="round"/>

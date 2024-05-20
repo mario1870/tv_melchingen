@@ -13,7 +13,7 @@ const navigationLinks = [
     { to: "/Kinderturnen", label: "Kindertunen", delay: 0.7 },
     { to: "/roundnet", label: "Roundnet", delay: 0.7 },
     { to: "/Sportheim", label: "Sportheim", delay: 0.8 },
-    { to: "/Veranstaltungen", label: "Veranstaltungen", delay: 0.9 },
+    { to: "/elfmeterturnier", label: "Elfmeterturnier", delay: 0.9 },
     { to: "/Sponsoren", label: "Sponsoren", delay: 1.0 },
     { to: "/Kontakt", label: "Kontakt", delay: 1.1 },
   ];
@@ -29,7 +29,7 @@ const Sidebar = ({ toggle, setToggle }) => {
         <div className="w-full min-h-full z-30 flex flex-col left-0 pt-28 fixed justify-between">
             <div className="flex flex-col justify-between gap-4">
                 {navigationLinks.map((link, index) => (
-                    <motion.div key={index} 
+                    <motion.div key={link.label} 
                         initial={{ opacity: 0, y: 10 }} 
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: link.delay }}

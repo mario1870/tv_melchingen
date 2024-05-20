@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { AppProvider } from "./providers";
 
 // Lazy Loading der Seitenkomponenten
 const Home = lazy(() => import("./pages/Home"));
@@ -16,7 +17,7 @@ const Roundnet = lazy(() => import("./pages/Roundnet"));
 const Sponsoren = lazy(() => import("./pages/Sponsoren"));
 const Kontakt = lazy(() => import("./pages/Kontakt"));
 const Sportheim = lazy(() => import("./pages/Sportheim"));
-const Veranstaltungen = lazy(() => import("./pages/Veranstaltungen"));
+const Veranstaltungen = lazy(() => import("./pages/elfmeterturnier"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Admin = lazy(() => import("./pages/Admin"));
 
@@ -32,7 +33,7 @@ const routes = [
   { path: "/sponsoren", element: <Sponsoren /> },
   { path: "/kontakt", element: <Kontakt /> },
   { path: "/sportheim", element: <Sportheim /> },
-  { path: "/veranstaltungen", element: <Veranstaltungen /> },
+  { path: "/elfmeterturnier", element: <Veranstaltungen /> },
   { path: "/impressum", element: <Impressum /> },
   { path: "/admin", element: <Admin /> },
 ];
@@ -41,21 +42,17 @@ const queryClient = new QueryClient()
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        <Navbar />
-        <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-300 via-blue-400 to-violet-500 min-h-screen">
-          <Suspense fallback={<div className="w-full min-h-full flex flex-col left-0 fixed bg-blue-900 justify-center items-center" style={{zIndex: "999"}}></div>}>
-            <Routes>
-              {routes.map((route, index) => (
-                <Route key={index} path={route.path} element={route.element} />
-              ))}
-            </Routes>
-          </Suspense>
-        </div>
-        <Footer />
-      </BrowserRouter>
-    </QueryClientProvider>
+    <AppProvider>
+      <Navbar />
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-300 via-blue-400 to-violet-500 min-h-screen">
+        <Routes>
+          {routes.map((route, index) => (
+            <Route key={index} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </div>
+      <Footer />
+    </AppProvider>
   )
 }
 

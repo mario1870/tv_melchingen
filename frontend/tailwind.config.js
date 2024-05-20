@@ -70,9 +70,9 @@ module.exports = {
         },
       },
       fontFamily: {
-
-        roboto : ['"Roboto"', ...defaultTheme.fontFamily.sans],
-        freeman : ['"Freeman"', ...defaultTheme.fontFamily.sans]
+        kalam: ['"Kalam"', ...defaultTheme.fontFamily.sans],
+        roboto: ['"Roboto"', ...defaultTheme.fontFamily.sans],
+        plusJakaraSans: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         'roundnetBG': "url('/roundnet/bg.jpg')",
