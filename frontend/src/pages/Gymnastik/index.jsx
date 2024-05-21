@@ -1,8 +1,8 @@
-import FadeInWhenVisible from "../animationSections/fadeInWhenVisible"
-import WelcomeAnimation from '../animationSections/welcomeAnimation';
+import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible"
+import WelcomeAnimation from '../../components/animationSections/welcomeAnimation';
 import { useEffect, useState } from "react";
-import { MY_URL_STRAPI } from "../config";
-import useFormatText from "../hooks/useFormatText";
+import { MY_URL_STRAPI } from "../../config";
+import useFormatText from "../../hooks/useFormatText";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
@@ -13,16 +13,10 @@ const fetchData = async () => {
 const Gymnastik = () => {
 
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['gymnastik'], queryFn: fetchData });
-
     const [isVisible, setIsVisible] = useState(true);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    
-    if (isError) {
-        return <div>Error: {error.message}</div>;
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error: {error.message}</div>;
 
     return (
         <>

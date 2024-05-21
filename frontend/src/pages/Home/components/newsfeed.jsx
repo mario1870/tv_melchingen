@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardFooter } from "../ui/card"
-import { ScrollArea } from "../ui/scroll-area";
-import FadeInWhenVisible from "../../animationSections/fadeInWhenVisible";
-import { MY_URL_STRAPI } from "../../config";
-import useFormatText from "../../hooks/useFormatText";
+import { Card, CardContent, CardHeader, CardFooter } from "../../../components/ui/card"
+import { ScrollArea } from "../../../components/ui/scroll-area";
+import FadeInWhenVisible from "../../../components/animationSections/fadeInWhenVisible";
+import { MY_URL_STRAPI } from "../../../config";
+import useFormatText from "../../../hooks/useFormatText";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
@@ -13,14 +13,9 @@ const fetchData = async () => {
 const Newsfeed = () => {
   const { isLoading, isError, data, error } = useQuery({ queryKey: ['news'], queryFn: fetchData });
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (isError) {
-    return <div>Error: {error.message}</div>;
-  }
-
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error: {error.message}</div>;
+  
   // Stellen Sie sicher, dass data und data.data vorhanden sind, bevor Sie fortfahren
   const sortierteNewsfeedDaten = data && data.data
     ? [...data.data].sort((a, b) => 

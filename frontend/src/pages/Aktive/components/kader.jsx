@@ -1,5 +1,5 @@
 import React, { useMemo, lazy } from 'react';
-import { MY_URL, MY_URL_STRAPI } from "../../config";
+import { MY_URL, MY_URL_STRAPI } from "../../../config";
 import { useQuery } from '@tanstack/react-query'
 
 const SpielerCard = lazy(() => import("./SpielerCard"));
@@ -32,13 +32,8 @@ const Kader = () => {
     }, [data]);
     
 
-    if (isLoading || !data) {
-        return <p>Loading...</p>;
-    }
-    
-    if(isError){
-        return <p>Error: {error.message}</p>
-    }
+    if (isLoading || !data) return <p>Loading...</p>;
+    if(isError) return <p>Error: {error.message}</p>
 
     return (
         <div className="w-full">

@@ -19,7 +19,7 @@ const WelcomeAnimation = ({ isVisible, onAnimationComplete, text }) => {
             transition={{ duration: 0.2, delay: 0, ease: 'easeInOut' }}>
         <img src="/navbar/TVMlogo.png" className="w-full pt-24" />
       </motion.span>
-      <p className="text-6xl text-center font-outline-4 text-white py-8">{text}</p>
+      <p className="text-4xl md:text-6xl text-center font-outline-4 text-white py-8">{text}</p>
     </motion.div>
   );
 };

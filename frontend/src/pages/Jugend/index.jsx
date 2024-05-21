@@ -1,9 +1,9 @@
 
-import FadeInWhenVisible from "../animationSections/fadeInWhenVisible";
+import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";
 import { useState } from "react";
-import { MY_URL, MY_URL_STRAPI } from "../config";
-import { Skeleton } from "../components/ui/skeleton"
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import { MY_URL, MY_URL_STRAPI } from "../../config";
+import { Skeleton } from "../../components/ui/skeleton"
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
@@ -15,13 +15,8 @@ const Jugend = () => {
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['jugend'], queryFn: fetchData });
     const [isVisible, setIsVisible] = useState(true);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    
-    if (isError) {
-        return <div>Error: {error.message}</div>;
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error: {error.message}</div>;
 
     return (
         <>

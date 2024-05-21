@@ -1,28 +1,21 @@
 import { useState } from "react";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
-import SlideUpWhenVisible from "../animationSections/slideUpWhenVisible";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
+import SlideUpWhenVisible from "../../components/animationSections/slideUpWhenVisible";
 import { motion } from "framer-motion"; // Importiere die SVG-Datei
-import { TextGenerateEffect } from "../animationEffects/text-generate-effect";
+import { TextGenerateEffect } from "../../components/animationEffects/text-generate-effect";
 import { useMediaQuery } from 'react-responsive';
 import { FaVolleyballBall } from "react-icons/fa";
-import useScrollViewport from "../hooks/framer-animations/useScrollViewport";
+import useScrollViewport from "../../hooks/framer-animations/useScrollViewport";
 import { useTransform } from "framer-motion";
   
 const Roundnet = () => {
     const [isVisible, setIsVisible] = useState(true);
-    const { scrollYProgress, targetRef } = useScrollViewport();
 
     const MobileWidth = 768; // Beispielwert für die Breite eines Mobilgeräts
     const isMobile = useMediaQuery({ maxWidth: MobileWidth });
     const width = isMobile ? "90%" : "66%";
 
     const delayRectangle = 1.5
-
-    const fontSize = useTransform(
-        scrollYProgress,
-        [0, 1],
-        ["3rem", "0rem"]
-      );
 
     return (
         <>

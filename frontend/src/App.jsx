@@ -17,7 +17,7 @@ const Roundnet = lazy(() => import("./pages/Roundnet"));
 const Sponsoren = lazy(() => import("./pages/Sponsoren"));
 const Kontakt = lazy(() => import("./pages/Kontakt"));
 const Sportheim = lazy(() => import("./pages/Sportheim"));
-const Veranstaltungen = lazy(() => import("./pages/elfmeterturnier"));
+const Veranstaltungen = lazy(() => import("./pages/Elfmeterturnier"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Admin = lazy(() => import("./pages/Admin"));
 

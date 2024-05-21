@@ -1,5 +1,5 @@
 import { useState } from "react";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 
 const Yoga = () => {
     const [isVisible, setIsVisible] = useState(true);

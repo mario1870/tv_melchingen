@@ -1,6 +1,6 @@
-import FadeInWhenVisible from "../animationSections/fadeInWhenVisible";
+import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";
 import { useState } from "react";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 
 const Kindertunen = () => {
     const [isVisible, setIsVisible] = useState(true);

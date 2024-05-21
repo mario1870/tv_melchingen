@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import {Input} from "../components/ui/input";
-import {Textarea} from "../components/ui/textarea";
-import { Button } from "../components/ui/button";
+import {Input} from "../../components/ui/input";
+import {Textarea} from "../../components/ui/textarea";
+import { Button } from "../../components/ui/button";
 import { motion } from 'framer-motion';
 import { useForm, ValidationError } from '@formspree/react';
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 
 const Sportheim = () => {
     const [isVisible, setIsVisible] = useState(true);

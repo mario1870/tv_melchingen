@@ -1,8 +1,7 @@
 import React, { useState, useCallback, Suspense, lazy } from 'react';
 
-const Kader = lazy(() => import("../components/aktive/kader"));
-const FadeInWhenVisible = lazy(() => import("../animationSections/fadeInWhenVisible"));
-const WelcomeAnimation = lazy(() => import('../animationSections/welcomeAnimation'));
+const Kader = lazy(() => import("./components/kader"));
+const WelcomeAnimation = lazy(() => import('../../components/animationSections/welcomeAnimation'));
 
 // TeamBanner außerhalb von Aktive, da es keinen Zustand oder Props verwendet
 const TeamBanner = () => (

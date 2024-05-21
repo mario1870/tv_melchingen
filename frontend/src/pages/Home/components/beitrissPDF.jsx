@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { saveAs } from 'file-saver';
-import { Button } from "../ui/button";
+import { Button } from "../../../components/ui/button";
 import { FaDownload } from "react-icons/fa";
-import FadeInWhenVisible from "../../animationSections/fadeInWhenVisible";
+import FadeInWhenVisible from "../../../components/animationSections/fadeInWhenVisible";
 
 const PDFDownloadButton = () => {
 

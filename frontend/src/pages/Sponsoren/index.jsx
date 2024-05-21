@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader } from "../components/ui/card"
+import { Card, CardContent, CardHeader } from "../../components/ui/card"
 import { useState, useEffect } from "react";
-import { MY_URL, MY_URL_STRAPI } from "../config";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import { MY_URL, MY_URL_STRAPI } from "../../config";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
@@ -15,13 +15,8 @@ const Sponsoren = () => {
 
     const [isVisible, setIsVisible] = useState(true);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-    
-    if (isError) {
-        return <div>Error: {error.message}</div>;
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error: {error.message}</div>;
 
     return (
         <>

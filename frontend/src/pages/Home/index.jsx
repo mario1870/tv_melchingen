@@ -1,9 +1,9 @@
 import React, {lazy, Suspense, useState} from "react";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 
-const Newsfeed = lazy(() => import("../components/home/newsfeed"));
-const PDFDownloadButton = lazy(() => import("../components/home/beitrissPDF"));
-const Carousel = lazy(() => import("../components/home/carousel"));
+const Newsfeed = lazy(() => import("./components/newsfeed"));
+const PDFDownloadButton = lazy(() => import("./components/beitrissPDF"));
+const Carousel = lazy(() => import("./components/carousel"));
 
 const Home = () => {
 

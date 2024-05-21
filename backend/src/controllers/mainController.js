@@ -57,7 +57,8 @@ export const createCheckoutSession = async (req, res) => {
         },
         mode: 'payment',
         ui_mode: 'embedded',
-        return_url: 'https://example.com/checkout/return?session_id={CHECKOUT_SESSION_ID}'
+        return_url: 'https://example.com/checkout/return?session_id={CHECKOUT_SESSION_ID}',
+        locale: "de",
       });
     
       res.send({clientSecret: session.client_secret});

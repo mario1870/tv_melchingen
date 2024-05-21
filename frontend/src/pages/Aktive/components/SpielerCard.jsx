@@ -1,5 +1,4 @@
-import { Card, CardContent, CardHeader, CardFooter } from "../ui/card"
-import { Skeleton } from "../ui/skeleton"
+import { Card, CardContent, CardFooter } from "../../../components/ui/card"
 
 import React from "react";
 

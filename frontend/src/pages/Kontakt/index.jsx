@@ -1,10 +1,10 @@
-import { Card, CardContent, CardHeader } from "../components/ui/card"
+import { Card, CardContent, CardHeader } from "../../components/ui/card"
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
-import FadeInWhenVisible from "../animationSections/fadeInWhenVisible";
+import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";
 import { useState } from "react";
-import { MY_URL, MY_URL_STRAPI } from "../config";
-import WelcomeAnimation from "../animationSections/welcomeAnimation";
+import { MY_URL, MY_URL_STRAPI } from "../../config";
+import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
@@ -17,14 +17,9 @@ const Kontakt = () => {
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['contact'], queryFn: fetchData });
     const [isVisible, setIsVisible] = useState(true);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
+    if (isLoading) return <div>Loading...</div>;
+    if (isError) return <div>Error: {error.message}</div>;
     
-    if (isError) {
-        return <div>Error: {error.message}</div>;
-    }
-
     return (
         <>
             {isVisible && (

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NewsHeadline from "./newsHeadline";
-import usePreloadImages from "../../hooks/usePreloadImages";
-import useCarousel from "../../hooks/useCarousel";
+import usePreloadImages from "../../../hooks/usePreloadImages";
+import useCarousel from "../../../hooks/useCarousel";
 
 const backgrounds = [
   { id: 1, url: "/home/elfer_wp-1.webp" },
