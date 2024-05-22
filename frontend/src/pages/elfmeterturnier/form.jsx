@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Button } from "../../components/ui/button"
+import { Button } from "../../components/ui/shadnCN/button"
 import {
   Form,
   FormControl,
@@ -9,18 +9,18 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../components/ui/form"
-import { Input } from "../../components/ui/input"
+} from "../../components/ui/shadnCN/form"
+import { Input } from "../../components/ui/shadnCN/input"
 import { useMutation } from "@tanstack/react-query";
-import { useToast } from "../../components/ui/use-toast";
-import { RadioGroup, RadioGroupItem } from "../../components/ui/radio-group"
-import { Checkbox } from "../../components/ui/checkbox"
+import { useToast } from "../../components/ui/shadnCN/use-toast";
+import { RadioGroup, RadioGroupItem } from "../../components/ui/shadnCN/radio-group"
+import { Checkbox } from "../../components/ui/shadnCN/checkbox"
 import { Link } from "react-router-dom";
 import { formSchema } from "./formSchema";
 import { LoadingDots } from "../../components/Elements/LoadingDots"
 import { MY_URL } from "../../lib/config"
  
-const RegistrationForm = () => {
+const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
   const { toast } = useToast();
 
     // 1. Define your form.
@@ -51,7 +51,6 @@ const RegistrationForm = () => {
         });
 
         if (!response.ok) throw new Error("Failed to create tournament");
-
         const responseData = await response.json();
 
         return responseData;
@@ -59,8 +58,19 @@ const RegistrationForm = () => {
         throw new Error("Error creating team: " + error.message);
       }
     },
-    onSuccess: () => {
-      console.log("WWW")
+    onSuccess: (responseData) => {
+      console.log(responseData.message)
+      if(responseData.message === "Teamname vergeben"){
+        toast({
+          title: "Teamname ist bereits vergeben",
+          description: `Melden wähle einen anderen Teamnamen!`,
+        });
+      } 
+      if(responseData.message === "Team erfolgreich erstellt"){
+        setTeamId(responseData.teamId)
+        setGender(form.getValues("gender"))
+        setDelta(true)
+      }
     },
     onError: (error) => {
       toast({
@@ -78,7 +88,7 @@ const RegistrationForm = () => {
     <Form {...form} className="w-full">
         <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="flex flex-col space-y-8 rounded-b-3xl px-6 pb-12 pt-6 md:px-12"
+            className="flex flex-col space-y-8 rounded-b-3xl"
         >
             {/** Form für Turniername & Veranstaltername */}
             <FormField
@@ -86,7 +96,7 @@ const RegistrationForm = () => {
               name="teamname"
               render={({ field }) => (
                   <FormItem className="w-full">
-                  <FormLabel>Geben Sie ihren Teamnamen ein</FormLabel>
+                  <FormLabel>Teamname</FormLabel>
                   <FormControl>
                       <Input placeholder="Juventus Urin" {...field} />
                   </FormControl>
@@ -99,7 +109,7 @@ const RegistrationForm = () => {
               name="hostName"
               render={({ field }) => (
                   <FormItem className="w-full">
-                  <FormLabel>Geben Sie ihren Namen ein</FormLabel>
+                  <FormLabel>Teamverantwortlicher</FormLabel>
                   <FormControl>
                       <Input placeholder="Max Mustermann" {...field} />
                   </FormControl>
@@ -112,7 +122,7 @@ const RegistrationForm = () => {
               name="hostEmail"
               render={({ field }) => (
                   <FormItem className="w-full">
-                  <FormLabel>Geben Sie ihre Emailadresse ein</FormLabel>
+                  <FormLabel>Emailaddresse</FormLabel>
                   <FormControl>
                       <Input
                       placeholder="example@example.de"
@@ -130,7 +140,7 @@ const RegistrationForm = () => {
               name="gender"
               render={({ field }) => (
                   <FormItem className="space-y-3">
-                  <FormLabel>Wähle die Teamart aus</FormLabel>
+                  <FormLabel>Teamart</FormLabel>
                   <FormControl>
                       <RadioGroup
                       onValueChange={field.onChange}
@@ -190,11 +200,11 @@ const RegistrationForm = () => {
             <Button
               className="float-end"
               type="submit"
-              disabled={mutation.isSuccess || mutation.isPending}
+              disabled={mutation.isPending}
             >
               {mutation.isIdle && "Team anmelden"}
               {mutation.isPending && <LoadingDots />}
-              {mutation.isSuccess && "Vielen Dank für ihre Anmeldung!"}
+              {mutation.isSuccess && "Team anmelden"}
               {mutation.isError && "Es ist ein Fehler aufgetreten!"}
             </Button>
         </form>

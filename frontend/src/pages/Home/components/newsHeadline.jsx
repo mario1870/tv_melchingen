@@ -1,9 +1,9 @@
-import { Card, CardContent, CardHeader, CardFooter } from "../../../components/ui/card";
-import { Separator } from "../../../components/ui/separator";
+import { Card, CardContent, CardHeader, CardFooter } from "../../../components/ui/shadnCN/card";
+import { Separator } from "../../../components/ui/shadnCN/separator";
 import { PiNewspaperClippingFill } from "react-icons/pi";
 import React from 'react';
 import { useQuery } from "@tanstack/react-query";
-import { Skeleton } from "../../../components/ui/skeleton";
+import { Skeleton } from "../../../components/ui/shadnCN/skeleton";
 
 const fetchData = async () => {
   const response = await fetch("https://fw2wtdomoh5zu53hym3ckx3ddm0jorqn.lambda-url.eu-central-1.on.aws/");

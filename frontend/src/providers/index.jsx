@@ -7,10 +7,10 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter } from "react-router-dom";
 import BeatLoader from "react-spinners/BeatLoader";
 import { HelmetProvider } from "react-helmet-async";
-import { Toaster } from "../components/ui/toaster";
+import { Toaster } from "../components/ui/shadnCN/toaster";
 
 // import ShadnCN-Components
-import { Button } from "../components/ui/button";
+import { Button } from "../components/ui/shadnCN/button";
 
 const ErrorFallback = () => {
   const handleClick = () => {

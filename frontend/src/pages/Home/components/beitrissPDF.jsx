@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { saveAs } from 'file-saver';
-import { Button } from "../../../components/ui/button";
+import { Button } from "../../../components/ui/shadnCN/button";
 import { FaDownload } from "react-icons/fa";
 import FadeInWhenVisible from "../../../components/animationSections/fadeInWhenVisible";
 

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "../../components/ui/card"
+import { Card, CardContent, CardHeader } from "../../components/ui/shadnCN/card"
 import { MdEmail } from "react-icons/md";
 import { FaPhone } from "react-icons/fa";
 import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";

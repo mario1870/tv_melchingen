@@ -9,9 +9,10 @@ import { MY_URL } from '../../lib/config';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.
-const stripePromise = loadStripe('pk_test_51NBK82CI8cvk3GBMTYHRIim7ROTrW6PKJDZ5A1a8cK5tAQjMDdaIScbM94pgFX8c4KicsRSDvlllsmsMJfTqzfpF00ONKeYHc0');
+const PUBLISHABLE_KEY = import.meta.env.VITE_REACT_APP_STRIPE_PUBLISHABLE_KEY;
+const stripePromise = loadStripe(PUBLISHABLE_KEY);
 
-const Payment = () => {
+const Payment = ({gender, teamId}) => {
   const fetchClientSecret = useCallback(() => {
     // Create a Checkout Session
     return fetch(`${MY_URL}/create-checkout-session`, {
@@ -19,6 +20,10 @@ const Payment = () => {
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({
+        gender: gender,
+        teamId: teamId,
+      }),
     })
       .then((res) => res.json())
       .then((data) => data.clientSecret);

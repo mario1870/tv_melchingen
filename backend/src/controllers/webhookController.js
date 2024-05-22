@@ -47,10 +47,10 @@ export const paymentCompleted = async (req, res) => {
 
         try {
           // Team in der Datenbank aktualisieren => paymentSuccessful
-          //await db
-          //  .update(teams)
-          //  .set({ paymentSuccessful: true })
-          //  .where(eq(teams.id, teamId));
+          await db
+            .update(teams)
+            .set({ paymentSuccessful: true })
+            .where(eq(teams.id, teamId));
 
           if (email !== null && name !== null) {
             await sendRegistrationEmail(email, name);

@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader, CardFooter } from "../../../components/ui/card"
-import { ScrollArea } from "../../../components/ui/scroll-area";
+import { Card, CardContent, CardHeader, CardFooter } from "../../../components/ui/shadnCN/card"
+import { ScrollArea } from "../../../components/ui/shadnCN/scroll-area";
 import FadeInWhenVisible from "../../../components/animationSections/fadeInWhenVisible";
 import { MY_URL_STRAPI } from "../../../config";
 import useFormatText from "../../../hooks/useFormatText";

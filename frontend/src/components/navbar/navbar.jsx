@@ -15,7 +15,7 @@ const navbarData = [
   {link: "/Kinderturnen", titel: "Kindertunen"},
   {link: "/roundnet", titel: "Roundnet"},
   {link: "/Sportheim", titel: "Sportheim"},
-  {link: "/elfmeterturnier", titel: "Elfmeterturnier"},
+  //{link: "/elfmeterturnier", titel: "Elfmeterturnier"},
   {link: "/Sponsoren", titel: "Sponsoren"},
   {link: "/Kontakt", titel: "Kontakt"},
 ];

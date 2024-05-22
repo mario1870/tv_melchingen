@@ -2,7 +2,7 @@
 import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";
 import { useState } from "react";
 import { MY_URL, MY_URL_STRAPI } from "../../config";
-import { Skeleton } from "../../components/ui/skeleton"
+import { Skeleton } from "../../components/ui/shadnCN/skeleton"
 import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
 import { useQuery } from "@tanstack/react-query";
 

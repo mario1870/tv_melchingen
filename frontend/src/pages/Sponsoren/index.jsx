@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "../../components/ui/card"
+import { Card, CardContent, CardHeader } from "../../components/ui/shadnCN/card"
 import { useState, useEffect } from "react";
 import { MY_URL, MY_URL_STRAPI } from "../../config";
 import WelcomeAnimation from "../../components/animationSections/welcomeAnimation";
