@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import { MY_URL } from "../../../lib/config";
 import { useQuery } from "@tanstack/react-query";
 import { TextGenerateEffect } from "../../../components/animationEffects/text-generate-effect";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "../../../components/ui/shadnCN/button";
-
-const fetchData = async () => {
-    const response = await fetch(`${MY_URL}`);
-    return response.json();
-};
+import { fetchDataWithReactQuery } from "../../../utils/fetchDataWithReactQuery";
 
 const ElfmeterturnierListe = () => {
     const [gender, setGender] = useState("man")
-    const { isLoading, isError, data, error } = useQuery({ queryKey: ['allTeams'], queryFn: fetchData });
+    const { isLoading, isError, data, error } = useQuery({ queryKey: ['allTeams'], queryFn: () => fetchDataWithReactQuery(`/`) });
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error: {error.message}</div>;
 
@@ -30,7 +25,7 @@ const ElfmeterturnierListe = () => {
 
           <div className="h-16 grid grid-cols-2 mt-6">
             <span className={`flex justify-center items-center w-full h-full`}>
-                <Button className={`flex justify-center items-center text-lg font-roboto cursor-pointer rounded-full p-4 text-black ${gender === "man" ? "bg-blue-300" : "bg-gray-200/40"}`} onClick={() => setGender("man")}>
+                <Button className={`flex justify-center items-center text-lg font-roboto cursor-pointer rounded-full p-4 text-black ${gender === "man" ? "bg-blue-300 hover:bg-blue-300/80" : "bg-gray-200/40 hover:bg-gray-200/20"}`} onClick={() => setGender("man")}>
                     Männerturnier
                 </Button>
             </span>
@@ -61,7 +56,7 @@ const ElfmeterturnierListe = () => {
                 {gender === "man" && (
                     <div className="flex flex-col text-xl">
                         {men.map((team, index) => (
-                            <div className="flex flex-row gap-2">
+                            <div key={team.id} className="flex flex-row gap-2">
                                 <p>{index + 1}.</p> 
                                 <p>{team.teamname}</p>
                             </div>
@@ -81,7 +76,7 @@ const ElfmeterturnierListe = () => {
                 {gender === "woman" && (
                     <div className="flex flex-col text-xl">
                         {women.map((team, index) => (
-                            <div className="flex flex-row gap-2">
+                            <div key={team.id} className="flex flex-row gap-2">
                                 <p>{index + 1}.</p> 
                                 <p>{team.teamname}</p>
                             </div>

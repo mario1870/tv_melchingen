@@ -7,6 +7,9 @@ const router = express.Router();
 router.get("/", mainController.getAllTeams);
 
 // Route für das Erstellen eines Teams
+router.get("/:id", mainController.getOneTeam);
+
+// Route für das Erstellen eines Teams
 router.post("/", mainController.createTeam);
 
 // Route für das Erstellen eines Teams

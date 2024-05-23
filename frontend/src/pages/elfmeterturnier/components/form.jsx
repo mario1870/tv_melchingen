@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { Button } from "../../components/ui/shadnCN/button"
+import { Button } from "../../../components/ui/shadnCN/button"
 import {
   Form,
   FormControl,
@@ -9,40 +9,41 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../../components/ui/shadnCN/form"
-import { Input } from "../../components/ui/shadnCN/input"
+} from "../../../components/ui/shadnCN/form"
+import { Input } from "../../../components/ui/shadnCN/input"
 import { useMutation } from "@tanstack/react-query";
-import { useToast } from "../../components/ui/shadnCN/use-toast";
-import { RadioGroup, RadioGroupItem } from "../../components/ui/shadnCN/radio-group"
-import { Checkbox } from "../../components/ui/shadnCN/checkbox"
+import { useToast } from "../../../components/ui/shadnCN/use-toast";
+import { RadioGroup, RadioGroupItem } from "../../../components/ui/shadnCN/radio-group"
+import { Checkbox } from "../../../components/ui/shadnCN/checkbox"
 import { Link } from "react-router-dom";
 import { formSchema } from "./formSchema";
-import { LoadingDots } from "../../components/Elements/LoadingDots"
-import { MY_URL } from "../../lib/config"
- 
-const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
+import { LoadingDots } from "../../../components/Elements/LoadingDots"
+import { MY_URL } from "../../../lib/config"
+import { RxInfoCircled } from "react-icons/rx";
+
+const RegistrationForm = ({setDelta, setGender, setTeamId, manTournamentIsFull, womanTournamentIsFull}) => {
   const { toast } = useToast();
 
-    // 1. Define your form.
-    const form = useForm({
-      resolver: zodResolver(formSchema),
-      defaultValues: {
-        teamname: "",
-        hostName: "",
-        hostEmail: "",
-        payment: false,
-        gender: undefined,
-        acceptAGB: false,
-      },
-    })
-   
+  // 1. Define your form.
+  const form = useForm({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      teamname: "",
+      hostName: "",
+      hostEmail: "",
+      payment: false,
+      gender: undefined,
+      acceptAGB: false,
+    },
+  })
+  
   // 2. Define a submit handler.
   const mutation = useMutation({
     mutationFn: async (data) => {
       try {
         const requestData = { ...data };
 
-        const response = await fetch(`${MY_URL}`, {
+        const response = await fetch(`${MY_URL}/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,6 +84,8 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
   const onSubmit = (data) => {
     mutation.mutate(data);
   };
+
+  const tournamentFull = manTournamentIsFull && womanTournamentIsFull
   
   return (
     <Form {...form} className="w-full">
@@ -98,7 +101,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
                   <FormItem className="w-full">
                   <FormLabel>Teamname</FormLabel>
                   <FormControl>
-                      <Input placeholder="Juventus Urin" {...field} />
+                      <Input placeholder="Juventus Urin" {...field} disabled={tournamentFull} />
                   </FormControl>
                   <FormMessage />
                   </FormItem>
@@ -111,7 +114,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
                   <FormItem className="w-full">
                   <FormLabel>Teamverantwortlicher</FormLabel>
                   <FormControl>
-                      <Input placeholder="Max Mustermann" {...field} />
+                      <Input placeholder="Max Mustermann" {...field} disabled={tournamentFull} />
                   </FormControl>
                   <FormMessage />
                   </FormItem>
@@ -128,6 +131,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
                       placeholder="example@example.de"
                       type="email"
                       {...field}
+                      disabled={tournamentFull}
                       />
                   </FormControl>
                   <FormMessage />
@@ -151,21 +155,26 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
                           <FormControl>
                           <RadioGroupItem
                               value="man"
+                              disabled={manTournamentIsFull}
+                              className="w-4 h-4"
                           />
                           </FormControl>
                           <FormLabel className="flex w-full flex-row justify-between font-normal">
-                          Männerteam / Gemischtes Team{" "}
-
+                            <p>Männerteam / Gemischt</p>
+                            <p className="text-red-400">{womanTournamentIsFull && "Turnier ist voll!" }</p>
                           </FormLabel>
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>
                           <RadioGroupItem
                               value="woman"
+                              disabled={womanTournamentIsFull}
+                              className="w-4 h-4"
                           />
                           </FormControl>
                           <FormLabel className="flex w-full flex-row justify-between font-normal">
-                          Frauenteam{" "}
+                            <p>Frauenteam</p>
+                            <p className="text-red-400">{womanTournamentIsFull && "Turnier ist voll!" }</p>
                           </FormLabel>
                       </FormItem>
                       </RadioGroup>
@@ -183,26 +192,32 @@ const RegistrationForm = ({setDelta, setGender, setTeamId}) => {
                       <Checkbox
                       checked={field.value}
                       onCheckedChange={field.onChange}
+                      disabled={tournamentFull}
                       />
                   </FormControl>
                   <div className="space-y-1 leading-none">
                       <FormLabel>
-                      Accept{" "}
-                      <Link to={"/legal"} className="text-blue-600">
-                          terms and conditions
+                      Ich stimme den{" "}
+                      <Link to={"/elfmeterturnier/geschaftsbedingungen"} className="text-blue-600">
+                          AGB
                       </Link>
+                      {" zu"}
                       </FormLabel>
                   </div>
                   </FormItem>
               )}
             />
+            <div className="text-[0.7rem] flex gap-4">
+              <RxInfoCircled className="w-8 h-8" />
+              <p>Aufgrund des Kleinunternehmerstatus gem. § 19 UStG erheben wir keine Umsatzsteuer und weisen diese daher auch nicht aus.</p>
+            </div>
 
             <Button
               className="float-end"
               type="submit"
-              disabled={mutation.isPending}
+              disabled={mutation.isPending || tournamentFull}
             >
-              {mutation.isIdle && "Team anmelden"}
+              {mutation.isIdle && tournamentFull ? "Turnier ist voll" : "Team anmelden"}
               {mutation.isPending && <LoadingDots />}
               {mutation.isSuccess && "Team anmelden"}
               {mutation.isError && "Es ist ein Fehler aufgetreten!"}

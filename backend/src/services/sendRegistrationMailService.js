@@ -4,7 +4,7 @@ import fs from 'fs';
 import ejs from 'ejs';
 import { sendEmail } from './emailService.js'; // Adjust this import if necessary
 
-const sendRegistrationEmail = async (email, name) => {
+const sendRegistrationEmail = async (email, name, teamID) => {
   try {
     const htmlFilePath = path.join(__dirname, '..', 'views', 'successfulRegistrationMail.html');
     
@@ -15,7 +15,7 @@ const sendRegistrationEmail = async (email, name) => {
     // Define the path to the image
     const imageFilePath = path.join(__dirname, '..', 'views', 'TVMlogo.png');
 
-    const variables = { name };
+    const variables = { name: name, activationLink: `https://www.tv-melchingen.de/elfmeterturnier/team/${teamID}`};
     const renderedHTML = ejs.render(htmlContent, variables);
 
     const mailOptions = {

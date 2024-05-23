@@ -5,7 +5,7 @@ import {
   EmbeddedCheckout
 } from '@stripe/react-stripe-js';
 import { useCallback } from 'react';
-import { MY_URL } from '../../lib/config';
+import { MY_URL } from '../../../lib/config';
 
 // Make sure to call `loadStripe` outside of a component’s render to avoid
 // recreating the `Stripe` object on every render.

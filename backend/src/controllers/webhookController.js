@@ -28,9 +28,6 @@ export const paymentCompleted = async (req, res) => {
     return;
   }
 
-  console.log("TTW")
-
-
   // Handle the event
   switch (event.type) {
     case "checkout.session.async_payment_succeeded":
@@ -53,7 +50,7 @@ export const paymentCompleted = async (req, res) => {
             .where(eq(teams.id, teamId));
 
           if (email !== null && name !== null) {
-            await sendRegistrationEmail(email, name);
+            await sendRegistrationEmail(email, name, teamId);
           } else {
             res.status(500).send("Error teamId email or name is null");
           }

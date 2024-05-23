@@ -6,7 +6,7 @@ import useFormatText from "../../hooks/useFormatText";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async () => {
-    const response = await fetch(`${MY_URL_STRAPI}/api/gymnastik-1?populate=*`);
+    const response = await fetch(`${MY_URL_STRAPI}`);
     return response.json()
   };  
 
