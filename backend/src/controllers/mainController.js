@@ -83,7 +83,7 @@ export const createCheckoutSession = async (req, res) => {
 
     const session = await stripe.checkout.sessions.create({
         line_items: [{
-          price: gender === "man" ? "price_1PJdxQCI8cvk3GBMHBGaoN0c" : "price_1PJdxkCI8cvk3GBMVU8jTZXG",
+          price: gender === "man" ? "price_1PK6tmCI8cvk3GBMoTEHQxeH" : "price_1PK6vrCI8cvk3GBM15l12LUH",
           quantity: 1,
         }],
         metadata: {
@@ -91,18 +91,26 @@ export const createCheckoutSession = async (req, res) => {
         },
         mode: 'payment',
         ui_mode: 'embedded',
-        cancel_url: `https://www.tv-melchingen.de/elfmeterturnier`,
-        success_url: `https://www.tv-melchingen.de/elfmeterturnier/team/${teamId}`,
-        customer_email: sendEmail,
+        return_url: `https://www.tv-melchingen.de/elfmeterturnier/team/${teamId}?session_id={CHECKOUT_SESSION_ID}`,
+        customer_email: email,
         locale: "de",
       });
     
       res.send({clientSecret: session.client_secret});
 };
 
+export const retrieveCheckoutSession = async (req, res) => {
+  // Team-ID aus Params extrahieren
+  const stripeSessionId = req.params.stripeSessionId;
+
+  const session = await stripe.checkout.sessions.retrieve(stripeSessionId);
+
+  res.json(session);
+};
 export default {
     getAllTeams,
     getOneTeam,
     createTeam,
     createCheckoutSession,
+    retrieveCheckoutSession
 };

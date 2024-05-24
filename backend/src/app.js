@@ -23,13 +23,13 @@ app.use(staticMiddleware);
 app.use(helmetMiddleware);
 app.use(helmetXSSMiddleware);
 app.use(corsMiddleware);
-app.use(apiKeyMiddleware);
 
 // Raw Route für webhook
 app.use("/webhook", webhookRoute);
 
 // Middleware
 app.use(jsonMiddleware);
+app.use(apiKeyMiddleware);
 
 // Routen werden hier definiert
 app.use("/", mainRoute);

@@ -15,4 +15,7 @@ router.post("/", mainController.createTeam);
 // Route für das Erstellen eines Teams
 router.post("/create-checkout-session", mainController.createCheckoutSession);
 
+// Route für das Erstellen eines Teams
+router.get("/retrieve-checkout-session/:stripeSessionId", mainController.retrieveCheckoutSession);
+
 export default router;

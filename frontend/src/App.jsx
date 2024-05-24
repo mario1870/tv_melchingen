@@ -20,6 +20,7 @@ const Sportheim = lazy(() => import("./pages/Sportheim"));
 const Veranstaltungen = lazy(() => import("./pages/Elfmeterturnier"));
 const Team = lazy(() => import("./pages/Elfmeterturnier/Team"));
 const ElfmeterturnierListe = lazy(() => import("./pages/Elfmeterturnier/Liste"));
+const ElfmeterturnierTeaminfos = lazy(() => import("./pages/Elfmeterturnier/Teaminfos"));
 const Geschaftsbedingungen = lazy(() => import("./pages/Elfmeterturnier/Geschaftsbedingungen"));
 const Impressum = lazy(() => import("./pages/Impressum"));
 const Admin = lazy(() => import("./pages/Admin"));
@@ -39,6 +40,7 @@ const routes = [
   { path: "/elfmeterturnier", element: <Veranstaltungen /> },
   { path: "/elfmeterturnier/team/:teamID", element: <Team /> },
   { path: "/elfmeterturnier/teams", element: <ElfmeterturnierListe /> },
+  { path: "/elfmeterturnier/teaminfos/:teamID", element: <ElfmeterturnierTeaminfos /> },
   { path: "/elfmeterturnier/geschaftsbedingungen", element: <Geschaftsbedingungen /> },
   { path: "/impressum", element: <Impressum /> },
   { path: "/admin", element: <Admin /> },

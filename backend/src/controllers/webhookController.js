@@ -40,7 +40,7 @@ export const paymentCompleted = async (req, res) => {
         const { metadata, customer_details } = event.data.object;
 
         const { teamId } = metadata;
-        const { email, name } = customer_details;
+        const { email } = customer_details;
 
         try {
           // Team in der Datenbank aktualisieren => paymentSuccessful
@@ -49,13 +49,12 @@ export const paymentCompleted = async (req, res) => {
             .set({ paymentSuccessful: true })
             .where(eq(teams.id, teamId));
 
-          if (email !== null && name !== null) {
-            await sendRegistrationEmail(email, name, teamId);
+          if (email !== null) {
+            await sendRegistrationEmail(email, teamId);
+            res.send("Email sent successfully");
           } else {
             res.status(500).send("Error teamId email or name is null");
           }
-
-          res.send("Email sent successfully");
         } catch (error) {
           console.error("Failed to send email:", error);
           res.status(500).send("Error sending email");
