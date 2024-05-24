@@ -47,6 +47,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, manTournamentIsFull, 
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            'auth': 'BLkPz1SnQsg8GMhqGRsN'
           },
           body: JSON.stringify(requestData),
         });

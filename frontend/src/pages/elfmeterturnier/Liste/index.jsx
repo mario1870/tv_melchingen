@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { TextGenerateEffect } from "../../../components/animationEffects/text-generate-effect";
-import { motion } from "framer-motion";
+import { useAnimate, stagger, delay } from "framer-motion"
 import { Link } from "react-router-dom";
 import { Button } from "../../../components/ui/shadnCN/button";
 import { fetchDataWithReactQuery } from "../../../utils/fetchDataWithReactQuery";
+import { motion } from "framer-motion";
+
 
 const ElfmeterturnierListe = () => {
-    const [gender, setGender] = useState("man")
+    const [gender, setGender] = useState("man")    
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['allTeams'], queryFn: () => fetchDataWithReactQuery(`/`) });
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error: {error.message}</div>;
@@ -37,7 +39,6 @@ const ElfmeterturnierListe = () => {
           </div>
 
           <div className="p-2">
-
             <motion.div
                 className="flex flex-col rounded-b-3xl px-6 pb-6 pt-6 md:px-12"
                 initial={{ opacity: 0 }}
@@ -52,16 +53,24 @@ const ElfmeterturnierListe = () => {
                                 Zur Anmeldung
                             </Button>
                         </Link>
-                    </div>                )}
+                    </div>                
+                )}
                 {gender === "man" && (
-                    <div className="flex flex-col text-xl">
+                    <motion.div className="flex flex-col text-xl" initial="hidden" animate="visible">
                         {men.map((team, index) => (
-                            <div key={team.id} className="flex flex-row gap-2">
+                            <motion.div 
+                                key={team.teamname}
+                                className="flex flex-row gap-2"
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: [0, 0.2, 1], x: 0 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4, delay: index * 0.15, ease: "easeInOut" }}
+                            >
                                 <p>{index + 1}.</p> 
                                 <p>{team.teamname}</p>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
                 {gender === "woman" && women.length === 0 && (
                     <div className="flex flex-col justify-center">
@@ -74,18 +83,23 @@ const ElfmeterturnierListe = () => {
                     </div>
                 )}
                 {gender === "woman" && (
-                    <div className="flex flex-col text-xl">
+                    <motion.div className="flex flex-col text-xl" initial="hidden" animate="visible">
                         {women.map((team, index) => (
-                            <div key={team.id} className="flex flex-row gap-2">
+                            <motion.div 
+                                key={team.teamname}
+                                className="flex flex-row gap-2"
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: [0, 0.2, 1], x: 0 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.4, delay: index * 0.15, ease: "easeInOut" }}
+                            >
                                 <p>{index + 1}.</p> 
                                 <p>{team.teamname}</p>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 )}
             </motion.div>
-
-
           </div>
         </div>
       </div> 

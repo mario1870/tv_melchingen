@@ -43,32 +43,32 @@ const ElferturnierCard = () => {
             </div>
             <div className="p-2">
                 {!delta && 
-                <motion.div
-                    className="flex flex-col space-y-8 rounded-b-3xl px-6 pb-12 pt-6 md:px-12"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                >
-                    <div className="flex flex-col text-sm">
-                        <h2 className="mb-2 text-md font-plusJakaraSans">Ablauf der Anmeldung</h2>
-                        <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Daten eingeben</p></span>
-                        <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Anmeldegebühr zahlen</p></span>
-                        <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Bestätigungsmail erhalten</p></span>
-                    </div>
-                    <RegistrationForm setDelta={setDelta} setGender={setGender} setTeamId={setTeamId} manTournamentIsFull={manTournamentIsFull} womanTournamentIsFull={womanTournamentIsFull} />
-                </motion.div>
+                  <motion.div
+                      className="flex flex-col space-y-8 rounded-b-3xl px-6 pb-12 pt-6 md:px-12"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                      <div className="flex flex-col text-sm">
+                          <h2 className="mb-2 text-md font-plusJakaraSans">Ablauf der Anmeldung</h2>
+                          <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Daten eingeben</p></span>
+                          <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Anmeldegebühr zahlen</p></span>
+                          <span className="flex justify-start items-center gap-2"><span className="w-6 h-6 flex items-center justify-start"><TbArrowBigRightLines /></span><p className="text-start">Bestätigungsmail erhalten</p></span>
+                      </div>
+                      <RegistrationForm setDelta={setDelta} setGender={setGender} setTeamId={setTeamId} manTournamentIsFull={manTournamentIsFull} womanTournamentIsFull={womanTournamentIsFull} />
+                  </motion.div>
                 }
                 {delta &&
-                <ScrollArea className="w-full h-[40rem] rounded-md">
-                    <motion.div
-                    className="w-full"
-                    initial={{ x: "5rem", opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
-                    >
-                        <Payment gender={gender} teamId={teamId} />
-                    </motion.div>
-                </ScrollArea>
+                  <ScrollArea className="w-full h-[40rem] rounded-md">
+                      <motion.div
+                      className="w-full"
+                      initial={{ x: "5rem", opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                          <Payment gender={gender} teamId={teamId} />
+                      </motion.div>
+                  </ScrollArea>
                 }
             </div>
         </div>

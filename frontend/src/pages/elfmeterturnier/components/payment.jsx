@@ -19,6 +19,7 @@ const Payment = ({gender, teamId}) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'auth': 'BLkPz1SnQsg8GMhqGRsN'
       },
       body: JSON.stringify({
         gender: gender,

@@ -7,6 +7,8 @@ import corsMiddleware from "./middlewares/corsMiddleware.js";
 import helmetMiddleware from "./middlewares/helmetMiddleware.js";
 import staticMiddleware from "./middlewares/staticMiddleware.js";
 import jsonMiddleware from "./middlewares/jsonMiddleware.js";
+import helmetXSSMiddleware from './middlewares/helmetXSSFilter.js';
+import apiKeyMiddleware from './middlewares/apiKeyMiddleware.js';
 
 // Importiere die Routen
 import mainRoute from "./routes/mainRoutes.js";
@@ -19,7 +21,9 @@ const PORT = process.env.PORT || 3000;
 
 app.use(staticMiddleware);
 app.use(helmetMiddleware);
+app.use(helmetXSSMiddleware);
 app.use(corsMiddleware);
+app.use(apiKeyMiddleware);
 
 // Raw Route für webhook
 app.use("/webhook", webhookRoute);
