@@ -25,7 +25,6 @@ const Newsfeed = () => {
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr] gap-8 mt-8">
-          
           {sortierteNewsfeedDaten.map((element, index) => (
             <FadeInWhenVisible key={element.attributes.Titel}>
               <Card className="w-full lg:h-80 flex flex-col lg:flex-row p-0 rounded-xl md:grid md:grid-cols-[2fr_3fr] md:justify-center items-center" >
@@ -41,7 +40,6 @@ const Newsfeed = () => {
                       <div>{useFormatText(element.attributes.Text)}</div>
                   </ScrollArea>
                 </CardContent>
-
               </Card>
             </FadeInWhenVisible>
           ))}

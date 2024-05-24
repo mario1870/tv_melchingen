@@ -79,7 +79,7 @@ export const createTeam = async (req, res) => {
 
 export const createCheckoutSession = async (req, res) => {
 
-    const { gender, teamId } = req.body;
+    const { gender, teamId, email } = req.body;
 
     const session = await stripe.checkout.sessions.create({
         line_items: [{
@@ -91,7 +91,9 @@ export const createCheckoutSession = async (req, res) => {
         },
         mode: 'payment',
         ui_mode: 'embedded',
-        return_url: `https://www.tv-melchingen.de/elfmeterturnier/team/${teamId}`,
+        cancel_url: `https://www.tv-melchingen.de/elfmeterturnier`,
+        success_url: `https://www.tv-melchingen.de/elfmeterturnier/team/${teamId}`,
+        customer_email: sendEmail,
         locale: "de",
       });
     

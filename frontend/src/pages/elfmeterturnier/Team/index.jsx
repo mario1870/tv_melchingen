@@ -7,10 +7,7 @@ import ramos_penalty from '../../../assets/ramos_penalty.gif'
 
 const Team = () => {
     const { teamID } = useParams();
-    const { isLoading, isError, data, error } = useQuery({
-        queryKey: ['team', teamID],
-        queryFn: () => fetchDataWithReactQuery(`/${teamID}`),
-    });
+    const { isLoading, isError, data, error } = useQuery({queryKey: ['team', teamID], queryFn: () => fetchDataWithReactQuery(`/${teamID}`)});
 
     if (isLoading) return <p>Loading...</p>;
     if (isError) return <div>Error!: {error.message}</div>;
@@ -21,11 +18,11 @@ const Team = () => {
                 Vielen Dank für ihre Anmeldung!
             </div>
 
-            <div className="mt-4">
+            <div className="mt-8">
                 <img src={ramos_penalty} className="w-full h-auto rounded-xl" />
             </div>
 
-            <div className="bg-white mx-3 w-full max-w-[40rem] rounded-xl my-10">
+            <div className="bg-white mx-3 w-full max-w-[340px] md:max-w-[30rem] rounded-xl my-10">
                 <div className="bg-blue-300 h-16 rounded-t-xl flex justify-between items-center text-lg md:text-xl font-plusJakaraSans font-semibold px-4 md:px-8">
                     <TextGenerateEffect className="text-md md:text-xl flex items-center justify-center mt-1" words={"Teaminfos"} />
                     <img src="/logo_gray.png" className="w-auto h-10" />
@@ -39,6 +36,9 @@ const Team = () => {
                     <Separator className="col-span-2 my-1" />
                     <p>Zahlung erfolgreich:</p><p>{data.paymentSuccessful ? "Ja" : "Nein"}</p>
                 </div>
+            </div>
+            <div className="text-[0.8rem] text-center text-blue-200">
+                Sollten Sie ihren Teamnamen ändern wollen oder sonstige Fragen haben, wenden Sie sich an <a href="mailto:marioraach.tvm@gmail.com">marioraach.tvm@gmail.com</a>
             </div>
         </div>
     );

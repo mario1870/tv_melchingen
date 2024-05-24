@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NewsHeadline from "./newsHeadline";
+import NewsHeadlineElfmeterturnier from "./newsHeadlineElfmeterturnier";
 import usePreloadImages from "../../../hooks/usePreloadImages";
 import useCarousel from "../../../hooks/useCarousel";
 
@@ -10,15 +11,13 @@ const backgrounds = [
   { id: 3, url: "/home/yoga_wp.webp" },
 ];
 
-const TRANSITION_DURATION = 1.5;
+const TRANSITION_DURATION = 2;
 
 const Carousel = () => {
   const allImagesLoaded = usePreloadImages(backgrounds.map(b => b.url));
   const currentIndex = useCarousel(backgrounds.length);
 
-  if (!allImagesLoaded) {
-    return <div>Lade...</div>; // oder ein Lade-Spinner
-  }
+  if (!allImagesLoaded) return <div>Lade...</div>
 
   return (
     <AnimatePresence>
@@ -36,7 +35,7 @@ const Carousel = () => {
         className="absolute top-0 left-0 right-0 bottom-0 flex items-end justify-center"
       >
         <div className="flex w-11/12 md:w-8/12 2xl:min-w-[70rem] mb-20">
-          <NewsHeadline />
+          <NewsHeadlineElfmeterturnier />
         </div>
       </motion.div>
     </AnimatePresence>

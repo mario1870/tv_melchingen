@@ -21,7 +21,7 @@ import { LoadingDots } from "../../../components/Elements/LoadingDots"
 import { MY_URL } from "../../../lib/config"
 import { RxInfoCircled } from "react-icons/rx";
 
-const RegistrationForm = ({setDelta, setGender, setTeamId, manTournamentIsFull, womanTournamentIsFull}) => {
+const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTournamentIsFull, womanTournamentIsFull}) => {
   const { toast } = useToast();
 
   // 1. Define your form.
@@ -71,6 +71,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, manTournamentIsFull, 
       if(responseData.message === "Team erfolgreich erstellt"){
         setTeamId(responseData.teamId)
         setGender(form.getValues("gender"))
+        setEmail(form.getValues("hostMail"))
         setDelta(true)
       }
     },

@@ -13,7 +13,7 @@ const navigationLinks = [
     { to: "/Kinderturnen", label: "Kindertunen", delay: 0.7 },
     { to: "/roundnet", label: "Roundnet", delay: 0.7 },
     { to: "/Sportheim", label: "Sportheim", delay: 0.8 },
-    //{ to: "/elfmeterturnier", label: "Elfmeterturnier", delay: 0.9 },
+    { to: "/elfmeterturnier", label: "Elfmeterturnier", delay: 0.9 },
     { to: "/Sponsoren", label: "Sponsoren", delay: 1.0 },
     { to: "/Kontakt", label: "Kontakt", delay: 1.1 },
   ];

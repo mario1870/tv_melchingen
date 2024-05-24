@@ -12,7 +12,7 @@ import { MY_URL } from '../../../lib/config';
 const PUBLISHABLE_KEY = import.meta.env.VITE_REACT_APP_STRIPE_PUBLISHABLE_KEY;
 const stripePromise = loadStripe(PUBLISHABLE_KEY);
 
-const Payment = ({gender, teamId}) => {
+const Payment = ({gender, teamId, email}) => {
   const fetchClientSecret = useCallback(() => {
     // Create a Checkout Session
     return fetch(`${MY_URL}/create-checkout-session`, {
@@ -24,6 +24,7 @@ const Payment = ({gender, teamId}) => {
       body: JSON.stringify({
         gender: gender,
         teamId: teamId,
+        email: email,
       }),
     })
       .then((res) => res.json())
