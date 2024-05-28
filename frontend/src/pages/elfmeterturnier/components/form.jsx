@@ -13,8 +13,8 @@ import {
 import { Input } from "../../../components/ui/shadnCN/input"
 import { useMutation } from "@tanstack/react-query";
 import { useToast } from "../../../components/ui/shadnCN/use-toast";
-import { RadioGroup, RadioGroupItem } from "../../../components/ui/shadnCN/radio-group"
-import { Checkbox } from "../../../components/ui/shadnCN/checkbox"
+import { RadioGroup, RadioGroupItemAnimated } from "../../../components/ui/shadnCNAnimated/radio-group/radio-group"
+import { CheckboxAnimated } from "../../../components/ui/shadnCNAnimated/checkbox/checkbox"
 import { Link } from "react-router-dom";
 import { formSchema } from "./formSchema";
 import { LoadingDots } from "../../../components/Elements/LoadingDots"
@@ -155,7 +155,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTourname
                       >
                       <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>
-                          <RadioGroupItem
+                          <RadioGroupItemAnimated
                               value="man"
                               disabled={manTournamentIsFull}
                               className="w-4 h-4"
@@ -168,7 +168,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTourname
                       </FormItem>
                       <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>
-                          <RadioGroupItem
+                          <RadioGroupItemAnimated
                               value="woman"
                               disabled={womanTournamentIsFull}
                               className="w-4 h-4"
@@ -191,7 +191,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTourname
               render={({ field }) => (
                   <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md">
                   <FormControl>
-                      <Checkbox
+                      <CheckboxAnimated
                       checked={field.value}
                       onCheckedChange={field.onChange}
                       disabled={tournamentFull}

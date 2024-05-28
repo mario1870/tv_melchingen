@@ -41,8 +41,11 @@ const ElferturnierCard = () => {
   return (
     <>
         <div className="bg-white mx-3 w-full max-w-[40rem] rounded-xl my-10">
-            <div className="bg-blue-300 h-16 rounded-t-xl flex justify-between items-center text-lg md:text-xl font-plusJakaraSans font-semibold px-4 md:px-8">
-                <TextGenerateEffect className="text-md md:text-xl flex items-center justify-center mt-1" words={"Elfmeterturnier 2024"} />
+            <div className="bg-blue-300 h-[4.5rem] rounded-t-xl flex justify-between items-center text-lg md:text-xl font-plusJakaraSans font-semibold px-4 md:px-8">
+                <div>
+                  <h2>Elfmeterturnier 2024</h2>
+                  <p className="text-[0.8rem] font-normal text-gray-800">3. August - Sportgelände Melchingen</p>
+                </div>
                 <img src="/logo_gray.png" className="w-auto h-10" />
             </div>
             <div className="p-2">
