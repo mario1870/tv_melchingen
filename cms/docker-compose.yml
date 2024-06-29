@@ -3,8 +3,11 @@ services:
   strapi:
     image: naskio/strapi
     environment:
-      NODE_ENV: development # or production
+      NODE_ENV: development # oder production
     ports:
       - "1337:1337"
-    # volumes:
-    #   - ./app:/srv/app # mount an existing strapi project
+    volumes:
+      - strapi-data:/srv/app/strapi-app
+      
+volumes:
+  strapi-data:

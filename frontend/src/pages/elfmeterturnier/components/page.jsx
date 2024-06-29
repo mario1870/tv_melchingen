@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import RegistrationForm from "./form";
 import Payment from "./payment";
 import { ScrollArea } from "../../../components/ui/shadnCN/scroll-area";
-import { TextGenerateEffect } from "../../../components/animationEffects/text-generate-effect";
 import { TbArrowBigRightLines } from "react-icons/tb";
 import { useQuery } from "@tanstack/react-query";
 import { fetchDataWithReactQuery } from "../../../utils/fetchDataWithReactQuery";
