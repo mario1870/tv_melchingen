@@ -50,7 +50,7 @@ export const createTeam = async (req, res) => {
     
     // Alle Teams suchen
     const isAvailable = await db.query.teams.findFirst({
-      where: (teams, { eq }) => and(eq(teams.teamname, teamname), eq(teams.paymentSuccessful, false)),
+      where: (teams, { eq }) => and(eq(teams.teamname, teamname), eq(teams.paymentSuccessful, true)),
     });
 
     if (isAvailable) {
