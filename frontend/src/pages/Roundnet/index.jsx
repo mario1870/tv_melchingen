@@ -4,9 +4,6 @@ import SlideUpWhenVisible from "../../components/animationSections/slideUpWhenVi
 import { motion } from "framer-motion"; // Importiere die SVG-Datei
 import { TextGenerateEffect } from "../../components/animationEffects/text-generate-effect";
 import { useMediaQuery } from 'react-responsive';
-import { FaVolleyballBall } from "react-icons/fa";
-import useScrollViewport from "../../hooks/framer-animations/useScrollViewport";
-import { useTransform } from "framer-motion";
   
 const Roundnet = () => {
     const [isVisible, setIsVisible] = useState(true);
@@ -15,7 +12,7 @@ const Roundnet = () => {
     const isMobile = useMediaQuery({ maxWidth: MobileWidth });
     const width = isMobile ? "90%" : "66%";
 
-    const delayRectangle = 1.5
+    const delayRectangle = 0.5
 
     return (
         <>
@@ -32,31 +29,17 @@ const Roundnet = () => {
                 <div className="text-6xl absolute top-32 md:top-40 font-roboto max-w-[66%]">
                     <TextGenerateEffect 
                         delay={2000} 
-                        className={"text-4xl text-center md:text-start md:text-8xl"} words={"Herzlich Willkommen"} />
+                        className={"text-4xl text-center md:text-start md:text-8xl"} words={"Melchinger Goldhähnchen"} />
                 </div>
 
                 {!isVisible && 
                     <>
                         <motion.div
-                            className="bg-white rounded-3xl absolute w-full h-auto max-h-[30rem] md:h-[30rem] flex flex-col p-1 mb-10 gap-1"
-                            initial={{ width: "10rem", borderRadius: "5rem", height:"10rem"}} 
-                            animate={{ width: width, borderRadius: "3rem", height:"auto" }} 
-                            transition={{ duration: 1, delay: delayRectangle, ease:"easeInOut" }} 
+                            className="bg-white/0 rounded-[3rem] absolute w-11/12 md:w-8/12 h-auto max-h-[30rem] md:h-[30rem] flex flex-col p-1 mb-10 gap-1"
                         >
 
-                            <div className="w-full h-auto flex justify-center items-center">
-                                <motion.img 
-                                    src="/roundnet/logo_gray.png"
-                                    loading="eager"
-                                    className="h-32 w-32 object-cover mx-auto my-auto absolute top-[1rem]" 
-                                    initial={{ opacity: 1, height: "auto" }} 
-                                    animate={{ opacity: 0, height: 0 }} 
-                                    transition={{ duration: 0.5, delay: delayRectangle, ease:"easeInOut" }} 
-                                />
-                            </div>
-
-                            <div className="md:h-12 md:px-6 px-2 text-center md:text-start flex justify-between items-end">
-                                <TextGenerateEffect delay={delayRectangle * 1000 + 2000} words={"Die Goldhähnchen: Roundnet beim TV Melchingen"} />
+                            <div className="md:h-12 md:px-6 px-2 text-center md:text-start flex justify-between items-end py-4 md:py-0">
+                                <TextGenerateEffect delay={delayRectangle * 1000 + 2000} words={"Roundnet beim TV Melchingen"} />
                             </div>
 
                             <div className="w-full h-full flex flex-col items-end justify-end md:flex-row gap-1 mt-1">
@@ -97,21 +80,16 @@ const Roundnet = () => {
                         </h1>
 
                         <h3 className="text-lg my-4 font-semibold">
-                            Was ist Roundnet?
+                            Roundnet? Was ist das denn? 
                         </h3>
 
-                        <p>
-                            Roundnet ist ein aufregendes Spiel, das Volleyball und Völkerball vereint. Zwei Teams kämpfen darum, den Ball auf ein niedriges Netz zu schlagen, um Punkte zu erzielen.
-                        </p>
+                        <p className="md:text-lg">
+                            Diese coole Trendsportart ähnelt ein wenig der Sportart Volleyball. Zwei Teams mit je 2 Personen spielen gegeneinander und haben jeweils 3 Berührungen, um den Ball zurück aufs Netz zu bringen. Das Netz befindet sich auf dem Boden und beide Teams können sich frei um das Netz bewegen. Spaß ist bei dieser Sportart auf jeden Fall garantiert. Nicht ohne Grund sieht man mittlerweile fast in jedem Park 4 Personen um dieses „komische Netz“ herumrennen 😉                        </p>
                         <br />
-                        <p>
+                        <p className="text-lg font-semibold">
                             Sieh dir das kurze Erklärungsvideo an und mach mit beim Training!
                         </p>
-
-                        <h3 className="text-lg my-4 font-semibold">
-                            Willkommen in der Welt des Roundnet!
-                        </h3>
-                    
+                
                     </div>
                 </SlideUpWhenVisible>
                 <SlideUpWhenVisible delay={0.35}>
@@ -133,29 +111,13 @@ const Roundnet = () => {
                     <div className="md:w-1/2 mb-6">
                         <SlideUpWhenVisible delay={0.15}>
                             <h2 class="text-black text-2xl md:text-3xl font-bold font-freeman">Melchinger Goldhähnchen</h2>
-                            <div class="text-black text-md md:text-xl font-roboto my-6 md:my-12 grid grid-cols-8 gap-4">
-                                <span className="flex justify-center items-center">
-                                    <FaVolleyballBall className="h-6 w-6" />
+                            <div class="text-black text-md md:text-lg font-roboto my-6 grid grid-cols-8 gap-4">
+                                <span className="w-full col-span-8">
+                                Die Melchinger Roundnet Community existiert seit Herbst 2023 und erfreut sich seither wachsender Beliebtheit. Unsere Trainingseinheiten finden <strong>jeden Freitag von 18 bis 20 Uhr</strong> statt.<br/>In den kalten Monaten trainieren wir in der Halle, während wir ab April bei gutem Wetter auf dem Sportplatz aktiv sind.
+                                Unser Training besteht nicht nur aus Spielphasen, sondern beinhaltet auch eine kurze Übungsphase, um Technik und Taktik zu verbessern.<br/><br/>Wir möchten damit sowohl Anfängern als auch Fortgeschrittenen die Möglichkeit bieten, ihre Fähigkeiten zu entwickeln und zu verfeinern.
+                                Willkommen sind alle, die Spaß am Spiel haben und gerne Teil unserer Community werden möchten. Besonders freuen würden wir uns über ein paar weibliche Teilnehmerinnen, um unsere Gruppe noch vielfältiger zu gestalten.
+                                <br/><br/>Worauf wartet ihr also noch? Folgt dem Ruf der Goldhähnchen und lernt die Dynamik und den Spaß der Sportart Roundnet kennen! 😊
                                 </span>
-                                <h2 className="col-span-7">
-                                     Roundnetgruppe des TV Melchingen
-                                </h2>
-                                <span className="flex justify-center items-center">
-                                    <FaVolleyballBall className="h-6 w-6" />
-                                </span>
-                                <h2 className="col-span-7">
-                                     Training findet Freitags um 18 Uhr statt, entweder in der Melchinger Turnhalle oder bei schönem Wetter auf dem Melchinger Sportplatz
-                                </h2>
-                                <span className="flex justify-center items-center">
-                                    <FaVolleyballBall className="h-6 w-6" />
-                                </span>
-                                <h2 className="col-span-7">
-                                     Bei Fragen und Interesse melden Sie sich bei Raphael (Nummer)
-                                </h2>
-                                <br/><br/>
-                                <h2 className="col-span-8 px-6">
-                                    Es ist egal ob Sie Roundnet bereits lieben oder einfach mal etwas Neues ausprobieren möchten – <strong>alle sind bei uns herzlich willkommen!</strong>
-                                </h2>
                             </div>
                         </SlideUpWhenVisible>
                     </div>
