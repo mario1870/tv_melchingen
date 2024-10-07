@@ -8,7 +8,7 @@ const SpielerCard = ({ name, img }) => {
             <CardContent className="p-0">
                 <img
                     alt={name}
-                    className="object-cover rounded-lg"
+                    className="object-cover rounded-lg w-40 h-52"
                     src={img}
                     shadow="lg"
                     loading="lazy"

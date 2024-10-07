@@ -37,7 +37,7 @@ const Kader = () => {
 
     return (
         <div className="w-full">
-            <h1 className="text-4xl text-center py-12">Kader 2023/2024</h1>
+            <h1 className="text-4xl text-center py-12">Kader 2024/2025</h1>
 
             {Object.entries(groupedData).map(([positionKey, players]) => (
                 <div key={positionKey} className="my-4">

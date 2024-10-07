@@ -11,7 +11,7 @@ const fetchData = async () => {
 };  
 
 const NewsHeadline = () => {
-  const { isLoading, isError, data, error } = useQuery({ queryKey: ['newsTVM'], queryFn: fetchData, refetchInterval: 600000  });
+  const { isLoading, data } = useQuery({ queryKey: ['newsTVM'], queryFn: fetchData, refetchInterval: 600000  });
   
   return (
     <div className="w-full">
@@ -23,7 +23,7 @@ const NewsHeadline = () => {
           </div>
         </CardHeader>
 
-        <CardContent className="p-0 px-4 py-2">
+        {/* <CardContent className="p-0 px-4 py-2">
           {isLoading ? (
             <div className="loading">
               <Skeleton className="h-4 w-full my-2 bg-gray-600" />
@@ -34,8 +34,12 @@ const NewsHeadline = () => {
           ) : (
             <div>No data available</div>
           )}
-        </CardContent>
+        </CardContent> */}
 
+        <div className="pl-4 py-2">
+          Die Heimspiele der ersten Mannschaft finden in Melchingen statt. Die der zweiten Mannschaft in Salmendingen.<br/>
+          <b>Wir freuen uns auf ihren Besuch!</b>
+        </div>
 
         <Separator />
 
