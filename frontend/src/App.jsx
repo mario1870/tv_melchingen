@@ -1,9 +1,7 @@
-import React, { Suspense, lazy } from "react";
+import React, { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
 import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { AppProvider } from "./providers";
 
 // Lazy Loading der Seitenkomponenten
