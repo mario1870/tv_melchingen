@@ -1,7 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import NewsHeadline from "./newsHeadline";
-import NewsHeadlineElfmeterturnier from "./newsHeadlineElfmeterturnier";
 import usePreloadImages from "../../../hooks/usePreloadImages";
 import useCarousel from "../../../hooks/useCarousel";
 
@@ -35,7 +34,7 @@ const Carousel = () => {
         className="absolute top-0 left-0 right-0 bottom-0 flex items-end justify-center"
       >
         <div className="flex w-11/12 md:w-8/12 2xl:min-w-[70rem] mb-20">
-          <NewsHeadlineElfmeterturnier />
+          <NewsHeadline />
         </div>
       </motion.div>
     </AnimatePresence>
