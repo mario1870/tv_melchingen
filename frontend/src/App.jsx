@@ -5,9 +5,9 @@ import Footer from "./components/footer";
 import { AppProvider } from "./providers";
 
 // Lazy Loading der Seitenkomponenten
-const Home = lazy(() => import("./pages/Home"));
-const Aktive = lazy(() => import("./pages/Aktive"));
-const Jugend = lazy(() => import("./pages/Jugend"));
+import Home from "./pages/Home";
+import Aktive from "./pages/Aktive";
+import Jugend from "./pages/Jugend";
 const Yoga = lazy(() => import("./pages/Yoga"));
 const Gymnastik = lazy(() => import("./pages/Gymnastik"));
 const Kinderturnen = lazy(() => import("./pages/Kinderturnen"));

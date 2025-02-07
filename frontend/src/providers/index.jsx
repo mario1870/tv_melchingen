@@ -1,13 +1,11 @@
-
-
 import * as React from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { BrowserRouter } from "react-router-dom";
-import BeatLoader from "react-spinners/BeatLoader";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "../components/ui/shadnCN/toaster";
+import LoadingSpinner from "../components/Elements/LoadingSpinner";
 
 // import ShadnCN-Components
 import { Button } from "../components/ui/shadnCN/button";
@@ -29,6 +27,7 @@ const ErrorFallback = () => {
   );
 };
 
+
 // Initialize Client for React-Query
 const queryClient = new QueryClient();
 
@@ -38,7 +37,7 @@ export const AppProvider = ({ children }) => {
     <React.Suspense
       fallback={
         <div className="flex h-screen w-screen items-center justify-center">
-          <BeatLoader color="#36d7b7" />
+          <LoadingSpinner />
         </div>
       }
     >

@@ -1,6 +1,6 @@
 import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible"
 import WelcomeAnimation from '../../components/animationSections/welcomeAnimation';
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { MY_URL_STRAPI } from "../../config";
 import useFormatText from "../../hooks/useFormatText";
 import { useQuery } from "@tanstack/react-query";

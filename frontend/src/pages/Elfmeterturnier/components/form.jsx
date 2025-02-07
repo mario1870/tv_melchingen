@@ -17,7 +17,7 @@ import { RadioGroup, RadioGroupItemAnimated } from "../../../components/ui/shadn
 import { CheckboxAnimated } from "../../../components/ui/shadnCNAnimated/checkbox/checkbox"
 import { Link } from "react-router-dom";
 import { formSchema } from "./formSchema";
-import { LoadingDots } from "../../../components/Elements/LoadingDots"
+import { LoadingDots } from "../../../components/Elements/LoadingSpinner"
 import { MY_URL } from "../../../lib/config"
 import { RxInfoCircled } from "react-icons/rx";
 
