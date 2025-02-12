@@ -17,9 +17,9 @@ import { RadioGroup, RadioGroupItemAnimated } from "../../../components/ui/shadn
 import { CheckboxAnimated } from "../../../components/ui/shadnCNAnimated/checkbox/checkbox"
 import { Link } from "react-router-dom";
 import { formSchema } from "./formSchema";
-import { LoadingDots } from "../../../components/Elements/LoadingSpinner"
 import { MY_URL } from "../../../lib/config"
 import { RxInfoCircled } from "react-icons/rx";
+import LoadingSpinner from "../../../components/Elements/LoadingSpinner"
 
 const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTournamentIsFull, womanTournamentIsFull}) => {
   const { toast } = useToast();
@@ -220,7 +220,7 @@ const RegistrationForm = ({setDelta, setGender, setTeamId, setEmail, manTourname
               disabled={mutation.isPending || tournamentFull}
             >
               {mutation.isIdle && tournamentFull ? "Turnier ist voll" : "Team anmelden"}
-              {mutation.isPending && <LoadingDots />}
+              {mutation.isPending && <LoadingSpinner />}
               {mutation.isSuccess && "Team anmelden"}
               {mutation.isError && "Es ist ein Fehler aufgetreten!"}
             </Button>
