@@ -73,7 +73,7 @@ export function FormComponent() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full max-w-[40rem] px-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 w-full max-w-[40rem] p-4">
         <FormField
           control={form.control}
           name="name"
@@ -81,7 +81,7 @@ export function FormComponent() {
             <FormItem>
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input placeholder="Max Mustermann" {...field} />
+                <Input placeholder="Max Mustermann" className="bg-white/80 border-0" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -94,7 +94,7 @@ export function FormComponent() {
             <FormItem>
               <FormLabel>Email Addresse</FormLabel>
               <FormControl>
-                <Input placeholder="max@mustermann.de" {...field} />
+                <Input placeholder="max@mustermann.de" className="bg-white/80 border-0" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -107,7 +107,7 @@ export function FormComponent() {
             <FormItem>
               <FormLabel>Datum</FormLabel>
               <FormControl>
-                <Input placeholder="22.01.2026" {...field} />
+                <Input placeholder="22.01.2026" className="bg-white/80 border-0" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -120,13 +120,13 @@ export function FormComponent() {
             <FormItem>
               <FormLabel>Nachricht</FormLabel>
               <FormControl>
-                <Textarea placeholder="Hallo, ich bin ..." className="resize-none" {...field} />
+                <Textarea placeholder="Hallo, ich bin ..." className="resize-none bg-white/80 border-0" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button className="w-full" type="submit">Submit</Button>
       </form>
     </Form>
   )
