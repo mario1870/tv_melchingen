@@ -23,12 +23,12 @@ const PDFDownloadButton = () => {
 
   return (
     <>
-      <div className='flex flex-col md:flex-row w-full max-w-[50rem] min-h-20 justify-between px-4 items-center bg-white rounded-3xl text-center md:text-left'>
-        <div className='py-4'>
-          Mit dem Antrag in der PDF können sie jetzt Mitglied des TV Melchingen werden.<br/>
+      <div className='flex flex-col md:flex-row w-full max-w-[50rem] min-h-20 justify-between px-4 items-center bg-white rounded-3xl text-center md:text-left py-2 md:py-4 gap-2 shadow-md'>
+        <div className='text-sm md:text-base'>
+          Jetzt Mitglied des TV Melchingen werden.<br/>
           Wir freuen uns über jede Mitgliedschaft!
         </div>
-        <Button className='m-4 bg-green-500 hover:bg-green-600' onClick={handleDownload}>
+        <Button className='bg-green-500 hover:bg-green-600' onClick={handleDownload}>
           Herunterladen <Download className="ml-2 h-4 w-4" />
         </Button>    
       </div>

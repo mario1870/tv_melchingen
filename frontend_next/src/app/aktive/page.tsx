@@ -31,4 +31,4 @@ const Aktive = () => {
     );
 }
 
-export default React.memo(Aktive);
+export default Aktive;

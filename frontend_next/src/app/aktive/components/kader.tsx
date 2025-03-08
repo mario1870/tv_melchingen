@@ -4,6 +4,7 @@ import { MY_URL_STRAPI } from "@/lib/config";
 import { useQuery } from '@tanstack/react-query';
 import { SpielerCard } from './SpielerCard';
 
+
 // TypeScript Interfaces
 interface SpielerBild {
   data: Array<{
