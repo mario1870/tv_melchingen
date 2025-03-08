@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { MY_URL_STRAPI } from "@/lib/config";
 import useFormatText from "@/hooks/useFormatText";

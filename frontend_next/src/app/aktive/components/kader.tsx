@@ -1,5 +1,5 @@
 "use client"
-import React, { useMemo, Suspense } from 'react';
+import React, { useMemo } from 'react';
 import { MY_URL_STRAPI } from "@/lib/config";
 import { useQuery } from '@tanstack/react-query';
 import { SpielerCard } from './SpielerCard';

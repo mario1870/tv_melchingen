@@ -50,7 +50,7 @@ const Kontakt = () => {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                         {(data as KontaktResponse).data.map((element, index) => (
-                            <Card key={element.id} className="py-4 mx-6 my-3 bg-white/20">
+                            <Card key={index} className="py-4 mx-6 my-3 bg-white/20">
                                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
                                     <h4 className="font-bold text-large">{element.attributes.Rolle}</h4>
                                     <p className="text-base uppercase">{element.attributes.Name}</p>

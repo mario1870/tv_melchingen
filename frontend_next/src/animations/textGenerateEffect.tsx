@@ -15,7 +15,7 @@ export const TextGenerateEffect = ({
   delay=0
 }: TextGenerateEffectProps) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
   useEffect(() => {
     // Verzögere die Animation um 1 Sekunde
     setTimeout(() => {

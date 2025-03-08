@@ -1,12 +1,9 @@
 "use client"
-import { useState } from "react";
 import { AnimatePresence } from 'framer-motion';
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const Veranstaltungen = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
   return (
     <AnimatePresence>
       <div className="w-full min-h-screen flex justify-center items-center flex-col gap-6">
