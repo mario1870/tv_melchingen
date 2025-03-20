@@ -1,8 +1,7 @@
-import React, { useState, useCallback, memo } from "react";
+import React, { memo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader } from "@/components/ui/shadnCN/card";
 import { MY_URL } from "@/lib/config";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 import { motion } from "framer-motion";
 
 interface SponsorLogo {
@@ -32,7 +31,7 @@ const SponsorCard: React.FC<{
   sponsor: SponsorItem;
   index: number;
   totalCount: number;
-}> = memo(({ sponsor, index, totalCount }) => {
+}> = memo(({ sponsor, index }) => {
   // Calculate animation delay based on grid position for staggered effect
   const delay = 0.1 + (index % 4) * 0.05 + Math.floor(index / 4) * 0.1;
   
@@ -115,12 +114,6 @@ const Sponsoren: React.FC = () => {
     queryFn: fetchData
   });
  
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  
-  const handleAnimationComplete = useCallback(() => {
-    setIsVisible(false);
-  }, []);
- 
   if (isLoading) return <LoadingSkeleton />;
   if (isError) return <ErrorDisplay message={error.message} />;
 
@@ -135,14 +128,6 @@ const Sponsoren: React.FC = () => {
  
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={handleAnimationComplete}
-          text="Sponsoren"
-        />
-      )}
-      
       <div className="min-h-screen px-2 md:px-20 pt-20">
         {/* Hero section with background */}
         <div className="relative h-80 overflow-hidden">

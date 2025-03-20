@@ -1,9 +1,8 @@
-import React, { useState, useCallback, memo } from "react";
+import React, { memo } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaPhone } from "react-icons/fa";
 import { Card, CardContent } from "@/components/ui/shadnCN/card";
 import FadeInWhenVisible from "@/components/animationSections/fadeInWhenVisible";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 import { MY_URL } from "@/lib/config";
 
 interface KontaktBild {
@@ -155,12 +154,6 @@ const Kontakt: React.FC = () => {
     queryFn: fetchData
   });
  
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-
-  const handleAnimationComplete = useCallback(() => {
-    setIsVisible(false);
-  }, []);
- 
   if (isLoading) return <LoadingSkeleton />;
   
   if (isError) return (
@@ -177,14 +170,6 @@ const Kontakt: React.FC = () => {
  
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={handleAnimationComplete}
-          text="Kontakt"
-        />
-      )}
-      
       <div className="pt-40 pb-24 min-h-screen md:px-20">
         <div className="container mx-auto px-4">
           <SectionHeader 

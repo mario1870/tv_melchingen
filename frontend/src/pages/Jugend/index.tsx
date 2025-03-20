@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import FadeInWhenVisible from "@/components/animationSections/fadeInWhenVisible";
 import { MY_URL } from "@/lib/config";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 
 interface JugendBild {
   data: {
@@ -43,9 +42,7 @@ const Jugend: React.FC = () => {
     queryKey: ['jugend'], 
     queryFn: fetchData 
   });
-  
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  
+    
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {error.message}</div>;
   
@@ -64,14 +61,6 @@ const Jugend: React.FC = () => {
   
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={() => setIsVisible(false)}
-          text="Jugend"
-        />
-      )}
-     
       <div className="pt-20">
         <div className="grid grid-cols-1 xl:grid-cols-2 w-full px-4 xl:px-20">
           {data?.data

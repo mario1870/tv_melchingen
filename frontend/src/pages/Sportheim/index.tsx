@@ -4,22 +4,13 @@ import { useForm, ValidationError } from '@formspree/react';
 import { Input } from "@/components/ui/shadnCN/input";
 import { Textarea } from "@/components/ui/shadnCN/textarea";
 import { Button } from "@/components/ui/shadnCN/button";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 
 
 const Sportheim: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
   const [state, handleSubmit] = useForm("xwkgonny");
   
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={() => setIsVisible(false)}
-          text="Sportheim"
-        />
-      )}
       <div className="pt-24 md:pt-24 min-h-screen px-2">
         <span className="w-full flex items-center justify-center">
           <motion.img

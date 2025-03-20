@@ -30,7 +30,7 @@ const navigationLinks: NavigationLink[] = [
 
 const Sidebar: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
   const handleSidebarToggle = () => {
-    // Hier wird setToggle aufgerufen, um den State im Parent zu aktualisieren
+    document.body.style.overflow = '';
     setToggle((prevToggle) => !prevToggle);
   };
  

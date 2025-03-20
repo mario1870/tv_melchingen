@@ -1,67 +1,54 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 import SlideUpWhenVisible from "@/components/animationSections/slideUpWhenVisible";
 import { TextGenerateEffect } from "@/components/animationEffects/text-generate-effect";
   
 const Roundnet: React.FC = () => {
-    const [isVisible, setIsVisible] = useState<boolean>(true);
 
     const delayRectangle = 0.5;
 
     return (
         <>
-            {isVisible && (
-                <WelcomeAnimation 
-                    isVisible={isVisible} 
-                    onAnimationComplete={() => setIsVisible(false)} 
-                    text="Roundnet" 
-                />
-            )}
-
             <div className="min-h-svh z-10 flex justify-center items-end">
+                <>
+                    <motion.div
+                        className="bg-white/0 rounded-[3rem] absolute w-11/12 md:w-8/12 h-auto max-h-[30rem] md:h-[30rem] flex flex-col p-1 mb-10 gap-1"
+                    >
+                        <div className="md:h-12 md:px-6 px-2 text-center md:text-start flex justify-between items-end py-4 md:py-0">
+                            <TextGenerateEffect 
+                                delay={delayRectangle * 1000 + 2000} 
+                                words={"Roundnet beim TV Melchingen"} 
+                            />
+                        </div>
 
-                {!isVisible && (
-                    <>
-                        <motion.div
-                            className="bg-white/0 rounded-[3rem] absolute w-11/12 md:w-8/12 h-auto max-h-[30rem] md:h-[30rem] flex flex-col p-1 mb-10 gap-1"
-                        >
-                            <div className="md:h-12 md:px-6 px-2 text-center md:text-start flex justify-between items-end py-4 md:py-0">
-                                <TextGenerateEffect 
-                                    delay={delayRectangle * 1000 + 2000} 
-                                    words={"Roundnet beim TV Melchingen"} 
-                                />
-                            </div>
-
-                            <div className="w-full h-full flex flex-col items-end justify-end md:flex-row gap-1 mt-1">
-                                <motion.img 
-                                    src="/roundnet/himmelberg2.jpg" 
-                                    alt="Roundnet Spieler auf dem Himmelberg"
-                                    className="h-1/3 md:h-full md:w-1/3 object-cover md:rounded-l-[3rem] hidden md:block" 
-                                    initial={{ opacity: 0}} 
-                                    animate={{ opacity: 1 }} 
-                                    transition={{ duration: 0.8, delay: delayRectangle + 0.8, ease:"easeInOut" }} 
-                                />
-                                <motion.img 
-                                    src="/roundnet/himmelberg.jpg"
-                                    alt="Roundnet auf dem Himmelberg" 
-                                    className="h-auto md:h-full md:w-1/3 object-cover rounded-[3rem] md:rounded-none " 
-                                    initial={{ opacity: 0}} 
-                                    animate={{ opacity: 1 }} 
-                                    transition={{ duration: 0.8, delay: delayRectangle + 1.0, ease:"easeInOut" }} 
-                                />
-                                <motion.img 
-                                    src="/roundnet/himmelberg1.jpg"
-                                    alt="Roundnet Spieler in Aktion" 
-                                    className="h-1/3 md:h-full md:w-1/3 object-cover rounded-r-[3rem] hidden md:block" 
-                                    initial={{ opacity: 0}} 
-                                    animate={{ opacity: 1 }} 
-                                    transition={{ duration: 0.8, delay: delayRectangle + 1.2, ease:"easeInOut" }} 
-                                />
-                            </div>
-                        </motion.div>
-                    </>
-                )}
+                        <div className="w-full h-full flex flex-col items-end justify-end md:flex-row gap-1 mt-1">
+                            <motion.img 
+                                src="/roundnet/himmelberg2.jpg" 
+                                alt="Roundnet Spieler auf dem Himmelberg"
+                                className="h-1/3 md:h-full md:w-1/3 object-cover md:rounded-l-[3rem] hidden md:block" 
+                                initial={{ opacity: 0}} 
+                                animate={{ opacity: 1 }} 
+                                transition={{ duration: 0.8, delay: delayRectangle + 0.8, ease:"easeInOut" }} 
+                            />
+                            <motion.img 
+                                src="/roundnet/himmelberg.jpg"
+                                alt="Roundnet auf dem Himmelberg" 
+                                className="h-auto md:h-full md:w-1/3 object-cover rounded-[3rem] md:rounded-none " 
+                                initial={{ opacity: 0}} 
+                                animate={{ opacity: 1 }} 
+                                transition={{ duration: 0.8, delay: delayRectangle + 1.0, ease:"easeInOut" }} 
+                            />
+                            <motion.img 
+                                src="/roundnet/himmelberg1.jpg"
+                                alt="Roundnet Spieler in Aktion" 
+                                className="h-1/3 md:h-full md:w-1/3 object-cover rounded-r-[3rem] hidden md:block" 
+                                initial={{ opacity: 0}} 
+                                animate={{ opacity: 1 }} 
+                                transition={{ duration: 0.8, delay: delayRectangle + 1.2, ease:"easeInOut" }} 
+                            />
+                        </div>
+                    </motion.div>
+                </>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-center items-center mt-16 md:mt-40 pb-6 md:pb-32 mx-4 md:mx-32 font-roboto">

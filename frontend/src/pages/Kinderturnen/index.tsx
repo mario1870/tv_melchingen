@@ -1,7 +1,6 @@
-import React, { useState, useCallback, memo } from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import FadeInWhenVisible from "@/components/animationSections/fadeInWhenVisible";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 
 // Feature card component
 const FeatureCard: React.FC<{
@@ -44,22 +43,9 @@ const InfoSection: React.FC<{
 InfoSection.displayName = 'InfoSection';
 
 const Kinderturnen: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  
-  const handleAnimationComplete = useCallback(() => {
-    setIsVisible(false);
-  }, []);
-  
+
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={handleAnimationComplete}
-          text="Kinderturnen"
-        />
-      )}
-      
       {/* Hero section */}
       <div className="pt-20 px-2 md:px-20">
         <div className="container mx-auto px-4 py-12">

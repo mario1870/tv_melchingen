@@ -1,6 +1,5 @@
-import React, { useState, useCallback, memo } from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
-import WelcomeAnimation from "@/components/animationSections/welcomeAnimation";
 
 const YogaInfoCard: React.FC<{
   title: string;
@@ -18,22 +17,9 @@ const YogaInfoCard: React.FC<{
 YogaInfoCard.displayName = 'YogaInfoCard';
 
 const Yoga: React.FC = () => {
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  
-  const handleAnimationComplete = useCallback(() => {
-    setIsVisible(false);
-  }, []);
-  
+
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={handleAnimationComplete}
-          text="Yoga"
-        />
-      )}
-      
       {/* Hero section with background image */}
       <div className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background image with overlay */}

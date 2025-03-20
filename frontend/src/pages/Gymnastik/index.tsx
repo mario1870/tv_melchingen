@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import FadeInWhenVisible from "../../components/animationSections/fadeInWhenVisible";
-import WelcomeAnimation from '../../components/animationSections/welcomeAnimation';
 import useFormatText from "../../hooks/useFormatText";
 import { MY_URL } from "@/lib/config";
 
@@ -35,21 +34,11 @@ const Gymnastik: React.FC = () => {
     queryFn: fetchData
   });
   
-  const [isVisible, setIsVisible] = useState<boolean>(true);
-  
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error: {error.message}</div>;
   
   return (
     <>
-      {isVisible && (
-        <WelcomeAnimation
-          isVisible={isVisible}
-          onAnimationComplete={() => setIsVisible(false)}
-          text="Gymnastik"
-        />
-      )}
-     
       <div className="pt-24 w-full">
         <h1 className="w-full text-center text-4xl py-8">Gymnastik / Fitness</h1>
         {data?.data && (
